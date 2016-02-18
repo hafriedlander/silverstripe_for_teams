@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Title</title>
+		<title>SilverStripe - the CMS for teams</title>
 
 		<meta name="description" content="Presentation">
 		<meta name="author" content="Hamish Friedlander / SilverStripe">
@@ -15,12 +15,60 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+		<link rel="stylesheet" href="silverstripe.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<style type="text/css">
+			.reveal .backgrounds {
+				opacity: 0.4;
+			}
+
+			.reveal .slides img.left {
+				float: left;  margin-right: 50px;
+			}
+
+			.reveal .slides img.right {
+				float: right; margin-left: 50px;
+			}
+
+			.reveal .slides img.left, .reveal .slides img.right {
+				margin-bottom: 1000px;
+				width: 300px;
+			}
+
+			.reveal ul.circle {
+				position: relative;
+				height: 300px;
+				width: 300px;
+				margin: 0;
+			}
+
+			.reveal ul.circle li {
+				list-style: none; padding: 0; margin: 0;
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 200px; margin-left: -100px; text-align: center;
+				height: 50px; line-height: 50px; margin-top: -25px; vertical-align: middle;
+				transform-origin: 50% 50%;
+				transform: translateY(-150px);
+			}
+
+			.reveal ul.circle.eight li + li { transform: rotate(45deg) translateY(-150px); }
+			.reveal ul.circle.eight li + li + li{ transform: rotate(90deg) translateY(-150px); }
+			.reveal ul.circle.eight li + li + li + li { transform: rotate(135deg) translateY(-150px); }
+			.reveal ul.circle.eight li + li + li + li + li { transform: rotate(180deg) translateY(-150px) }
+			.reveal ul.circle.eight li + li + li + li + li + li { transform: rotate(225deg) translateY(-150px) }
+			.reveal ul.circle.eight li + li + li + li + li + li + li { transform: rotate(270deg) translateY(-150px)  }
+			.reveal ul.circle.eight li + li + li + li + li + li + li + li { transform: rotate(315deg) translateY(-150px)  }
+
+			.reveal ul.circle li:before {
+				content: '';
+			}
+
 			.reveal .slides section .fragment.zoom {
 				visibility: visible; opacity: 1;
 			}
@@ -28,6 +76,10 @@
 			.reveal .slides thead th, .reveal .slides tbody td {
 				text-align: center;
 				border: 0;
+			}
+
+			.reveal .slides thead th img, .reveal .slides tbody td img {
+				margin: 0;
 			}
 		</style>
 
@@ -68,6 +120,9 @@
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				width: 960,
+				height: 540, // use 540 for 16:9, use 600 for 16:10
+
 				controls: false,
 				progress: false,
 				history: true,
@@ -80,7 +135,7 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
